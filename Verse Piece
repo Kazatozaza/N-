@@ -1,4 +1,4 @@
--- Rayfield Gen2 v1.1.0
+-- Destiny Hub Gen2 v1.1.0
 -- loadstring(game:HttpGet("https://sirius.menu/gen2"))()
 local a local aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,b,c,d,e,f,g,h,i,j={function()local b,c,d=a(1)local e return(function(...)
 local f,g,h,i,j=d(c.utility.variables),d(c.utility.image),d(c.utility.locale),d(c.utility.constants),d(c.types)export
