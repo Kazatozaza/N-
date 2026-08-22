@@ -1369,7 +1369,7 @@ FontWeight.Medium)end if not(z and(z.TitleFont or z.titleFont))then x.TitleFont=
 return x end function h.new(w)w=if typeof(w)=='table'then w else{}if w.translations or w.Translations then aj.register(w
 .translations or w.Translations)end if w.translator or w.Translator then aj.translator=w.translator or w.Translator end
 aj.setActive(w.locale or w.Locale or aj.detect())local x=w.fallbackFont or w.FallbackFont if x then f.setFallbackFont(x)
-end local y=setmetatable({name=w.name or w.Name or'Rayfield Window',subheading=w.subtitle or w.Subtitle,size=o(),
+end local y=setmetatable({name=w.name or w.Name or'Rayfield Window',subheading=w.subtitle or w.Subtitle,size = UDim2.new(0, 600, 0, 400),
 instances={},connections={},icon=w.icon or w.Icon,showName=w.showName or w.ShowName or'Destiny Hub',showIcon=w.showIcon or
 w.ShowIcon or ai.icons.rayfield,themeProperties={},localeProperties={},tabs={},tags={},selectedTab=nil,theme=v(w.theme
 or w.Theme),controls={},configuration=(function()local y=w.configuration or w.Configuration if not y then return{}end
