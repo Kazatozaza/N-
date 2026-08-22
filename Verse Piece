@@ -1,4 +1,4 @@
--- Destiny Hub Gen2 v1.1.0
+-- Rayfield Gen2 v1.1.0
 -- loadstring(game:HttpGet("https://sirius.menu/gen2"))()
 local a local aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,b,c,d,e,f,g,h,i,j={function()local b,c,d=a(1)local e return(function(...)
 local f,g,h,i,j=d(c.utility.variables),d(c.utility.image),d(c.utility.locale),d(c.utility.constants),d(c.types)export
@@ -12,8 +12,8 @@ ToastProps=j.ToastProps export type PopupBox=j.PopupBox export type PopupOption=
 PopupProps export type Moveable=j.Moveable export type Window=j.Window export type Tab=j.Tab export type Group=j.Group
 export type Button=j.Button export type Toggle=j.Toggle export type Slider=j.Slider export type Dropdown=j.Dropdown
 export type Input=j.Input export type Keybind=j.Keybind export type ColorPicker=j.ColorPicker export type Stat=j.Stat
-export type Section=j.Section export type Tag=j.Tag export type Popup=j.Popup export type Destiny Hub=j.Destiny Hub type
-WindowModule={new:(j.WindowProps)->j.Window}local k={}::Destiny Hub local function l()local m=Instance.new'ScreenGui'm.Name
+export type Section=j.Section export type Tag=j.Tag export type Popup=j.Popup export type Rayfield=j.Rayfield type
+WindowModule={new:(j.WindowProps)->j.Window}local k={}::Rayfield local function l()local m=Instance.new'ScreenGui'm.Name
 =f.httpService:GenerateGUID(false)m.ClipToDeviceSafeArea=false m.DisplayOrder=i.displayOrder.banner m.IgnoreGuiInset=
 true m.ResetOnSpawn=false m.Enabled=true m.SafeAreaCompatibility=Enum.SafeAreaCompatibility.None m.ScreenInsets=Enum.
 ScreenInsets.DeviceSafeInsets m.ZIndexBehavior=Enum.ZIndexBehavior.Sibling m.Parent=f.guiContainer local n=Instance.new
@@ -31,9 +31,9 @@ ChangeTheme{Font=u,TitleFont=v}end end)end task.spawn(function()task.wait(0.5)o:
 then t:Show()end end)return t end return k end)()end,[3]=function()local b,c,d=a(3)local e return(function(...)local f={
 }f.__index=f f.__type='Action'local g=c.Parent.Parent.utility local h,i,j=d(g.variables),d(g.log),d(g.HapticEngine)
 function f.new(k,l)l=if typeof(l)=='table'then l else{}local m=setmetatable({window=assert(k,
-'Missing argument #1 (Window expected)'),Destiny Hub=l.Destiny Hub or l.RaDestiny Hubfield or'Action',icon=assert(l.icon or l.Icon,
+'Missing argument #1 (Window expected)'),name=l.name or l.Name or'Action',icon=assert(l.icon or l.Icon,
 'Missing argument (Icon expected)'),callback=assert(l.callback or l.Callback,'Missing argument (Function expected)'),
-linkedTab=l.linkedTab or l.LinkedTab},f)m.action=m.window:Create('Frame',{Destiny Hub=m.name,BorderSizePixel=0,LayoutOrder=-(l.
+linkedTab=l.linkedTab or l.LinkedTab},f)m.action=m.window:Create('Frame',{Name=m.name,BorderSizePixel=0,LayoutOrder=-(l.
 order or 0),Size=UDim2.fromOffset(24,24),BackgroundTransparency=1,Parent=m.window.actionContainer})m.iconLabel=m.window:
 Create('ImageLabel',{Image=m.icon,Size=UDim2.fromOffset(20,20),BorderSizePixel=0,AnchorPoint=Vector2.new(0.5,0.5),
 Position=UDim2.fromScale(0.5,0.5),BackgroundTransparency=1,ImageTransparency=1,Parent=m.action},{ImageColor3=
@@ -42,7 +42,7 @@ BorderSizePixel=0,Position=UDim2.fromScale(0.5,0.5),AnchorPoint=Vector2.new(0.5,
 )local function n()if not m.window:_settled()then return end if m.linkedTab and m.window.selectedTab==m.linkedTab then
 return end if m.isLit and m:isLit()then return end h.tweenService:Create(m.iconLabel,TweenInfo.new(0.25,Enum.EasingStyle
 .Quint,Enum.EasingDirection.Out),{ImageTransparency=0.6}):Play()end m.window:Connect(m.interact.MouseButton1Click,
-function()j.click()task.spawn(function()local o,p=pcall(m.callback)if not o then i.warn(`Destiny Hub encountered an error, with the callback for a {
+function()j.click()task.spawn(function()local o,p=pcall(m.callback)if not o then i.warn(`Rayfield encountered an error, with the callback for a {
 m.__type} component named '{m.name}':`)i.print(p)end n()end)end)m.window:Connect(m.interact.MouseEnter,function()if not
 m.window:_interactive()then return end h.tweenService:Create(m.iconLabel,TweenInfo.new(0.25,Enum.EasingStyle.Quint,Enum.
 EasingDirection.Out),{ImageTransparency=0.2}):Play()end)m.window:Connect(m.interact.MouseLeave,n)return m end return f
@@ -97,7 +97,7 @@ collapsedIcon},{CornerRadius='PillCornerRadius'})local n=m:Create('Frame',{Name=
 =Enum.SortOrder.LayoutOrder,Parent=n})m.collapsedTitle=m:Create('TextLabel',{Name='Title',Text=m.showName,Size=UDim2.
 new(1,0,0,16),BackgroundTransparency=1,FontFace=g.brandFont(Enum.FontWeight.Medium),RichText=true,TextSize=16,
 TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Left,LayoutOrder=1,ZIndex=i.zIndex.restoreContent,TextTransparency=1
-,Parent=n},{TextColor3='TitlingColor'})m.collapsedSubtitle=m:Create('TextLabel',{Name='Subtitle',Text=j.t'Destiny Hub',
+,Parent=n},{TextColor3='TitlingColor'})m.collapsedSubtitle=m:Create('TextLabel',{Name='Subtitle',Text=j.t'Tap to show',
 Size=UDim2.new(1,0,0,14),BackgroundTransparency=1,FontFace=g.brandFont(Enum.FontWeight.Medium),TextSize=14,
 TextXAlignment=Enum.TextXAlignment.Left,LayoutOrder=2,ZIndex=i.zIndex.restoreContent,TextTransparency=1,Parent=n},{
 TextColor3='TitlingColor'})m.collapsedInteract=m:Create('TextButton',{Name='CollapsedInteract',BackgroundTransparency=1,
@@ -529,7 +529,7 @@ window:Create('UIFlexItem',{FlexMode=Enum.UIFlexMode.Fill,Parent=r.main})end r.t
 'UIListLayout',{FillDirection=q,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,j),VerticalAlignment=if p then
 Enum.VerticalAlignment.Center else Enum.VerticalAlignment.Top,HorizontalAlignment=if p then Enum.HorizontalAlignment.
 Left else Enum.HorizontalAlignment.Center,Parent=r.main})return r end function f._add(l,m,n)if l.compact and not k[m]
-then h.warn(`Destiny Hub: a row only holds compact elements (button/toggle/stat/slider), ignoring '{m}'. Use a column for it.`
+then h.warn(`Rayfield: a row only holds compact elements (button/toggle/stat/slider), ignoring '{m}'. Use a column for it.`
 )return nil end local o=d(c.Parent[m]).new(l,n)table.insert(l.elements,o)i(o,#l.elements*10)l.window:_restoreLate(o)if l
 .compact then l:_wrapChild(o)end l:_reflowRow()if not l.window.hidden then o:_setShown(true,true)end return o end
 function f._reflowRow(l)if l.direction~=Enum.FillDirection.Horizontal then return end local m=#l.elements>0 for n,o in l
@@ -615,7 +615,7 @@ window:CreateHoverOverlay(w.main)w.container=w.window:Create('Frame',{Size=UDim2
 Create('UIListLayout',{Padding=UDim.new(0,5),FillDirection=Enum.FillDirection.Horizontal,VerticalAlignment=Enum.
 VerticalAlignment.Center,Parent=w.container})if w.icon then w.iconLabel=w.window:Create('ImageLabel',{Image=w.icon,Size=
 UDim2.fromOffset(16,16),BorderSizePixel=0,BackgroundTransparency=1,ZIndex=5,ImageTransparency=1,Parent=w.container},{
-ImageColor3='ContentColor'})end w.title=w.window:Create('TextLabel',{Text=k.t(Destiny Hub),Size=UDim2.fromOffset(150,16),
+ImageColor3='ContentColor'})end w.title=w.window:Create('TextLabel',{Text=k.t(w.name),Size=UDim2.fromOffset(150,16),
 AutomaticSize=Enum.AutomaticSize.X,BorderSizePixel=0,BackgroundTransparency=1,TextSize=16,TextXAlignment=Enum.
 TextXAlignment.Left,LayoutOrder=1,ZIndex=5,TextTransparency=1,Parent=w.container},{TextColor3='ContentColor',FontFace=
 'Font'})w.box=w.window:Create('TextButton',{AnchorPoint=Vector2.new(1,0.5),Position=UDim2.new(1,-7,0,20),Size=UDim2.
@@ -655,9 +655,9 @@ window:ConnectFor(u,h.userInputService.InputEnded,function(A)local B=if x~=Enum.
 .UserInputType==y if not B then return end if u.connections then local C=table.find(u.connections,z)if C then table.
 remove(u.connections,C)end end u.window:Disconnect(z)if u._holdPress==w then u._holdPress=nil end if u._holding then u.
 _holding=false u.window:_runGuarded(u,u.callback,false)end end)end function f.Set(u,v,w)local x=t(v)if x~=Enum.KeyCode.
-Unknown then if u.isMenuToggle then local y=u.window:_keybindUsing(x,u)if y then o.warn('Destiny Hub: '..s(x)..
+Unknown then if u.isMenuToggle then local y=u.window:_keybindUsing(x,u)if y then o.warn('Rayfield: '..s(x)..
 " is bound to '"..tostring(y.name).."'; kept "..s(u.value))return end elseif x==u.window.settings.toggleKeybind then o.
-warn('Destiny Hub: '..s(x)..' is the menu toggle key; kept '..s(u.value))return end end u.value=x if u.recording then u:
+warn('Rayfield: '..s(x)..' is the menu toggle key; kept '..s(u.value))return end end u.value=x if u.recording then u:
 _stopRecording()else u.keyLabel.Text=s(u.value)u:_sizeBox(true)end if not w then u.window:_runGuarded(u,u.onChanged,u.
 value)u.window:_persist(u)end end function f._serialize(u)return{tostring(u.value.EnumType),u.value.Value}end function f
 ._deserialize(u,v)local w=tostring(v[1]):gsub('^Enum%.','')local x,y=pcall(function()return Enum[w]end)if not x or not y
@@ -818,7 +818,7 @@ Connect(ah.MouseEnter,function()if aa._closed then return end h.tweenService:Cre
 ))table.insert(aa._connections,ae:Connect(ah.MouseLeave,function()h.tweenService:Create(Z,ai,{BackgroundColor3=V}):Play(
 )end))table.insert(aa._connections,ae:Connect(ah.MouseButton1Click,function()if aa._closed then return end m.click()h.
 tweenService:Create(_,ai,{Transparency=1}):Play()if U then task.spawn(function()local aj,ak=pcall(U)if not aj then l.
-warn("Destiny Hub: popup button '"..ag.."' callback errored:")l.print(ak)end end)end aa:Close()end))end function f.
+warn("Rayfield: popup button '"..ag.."' callback errored:")l.print(ak)end end)end aa:Close()end))end function f.
 _measureHeader(aa,ab)local ac=w-(if ab then A+B else 0)aa._titleH=i.textHeight(aa.window.theme.Font,x,k.resolve(aa.title
 ),ac)aa._subH=if aa.subtitle and aa.subtitle~=''then i.textHeight(aa.window.theme.Font,y,k.resolve(aa.subtitle),ac)else
 0 aa._columnH=aa._titleH+(if aa._subH>0 then 3+aa._subH else 0)return math.max(aa._columnH,if ab then A else 0)end
@@ -1011,7 +1011,7 @@ NumberEasing else true,changeMode=m.changeMode or m.ChangeMode or'percentage',ch
 ChangeBaseline or'previous',prefix=m.prefix or m.Prefix or'',suffix=m.suffix or m.Suffix or'',compact=m.compact or m.
 Compact or l.compact or false,display=(m.display or m.Display or'value'),_initialValue=if(m.value or m.Value)~=nil then(
 m.value or m.Value)else nil,_lastChange=0},ae)if n.compact then n:_buildCompact()else n:_buildFull()end if n.description
-then if n.compact then c.warn(`Destiny Hub: a compact stat has no room for a description, ignoring it on '{n.name}'.`)else
+then if n.compact then c.warn(`Rayfield: a compact stat has no room for a description, ignoring it on '{n.name}'.`)else
 n.descriptor=ac(ab.Parent.descriptor).new(n.tab,{description=n.description})end end return n end function ae._buildFull(
 l)local m=l.window l.main=m:Create('Frame',{Size=UDim2.new(1,-20,0,90),BorderSizePixel=0,Name=l.name,ZIndex=5,
 BackgroundTransparency=1,Parent=l.tab.tabPage},{BackgroundColor3='StatBackground',BackgroundTransparency=
@@ -1361,21 +1361,21 @@ then u.ElementStroke=s(w,0.28)end if v.ElementStrokeGradient==nil then u.Element
 ))end if v.ElementStrokeHover==nil then u.ElementStrokeHover=s(w,0.52)end end if v.TabBackground and v.TabStroke==nil
 then u.TabStroke=ColorSequence.new(s(r(u.TabBackground),0.4))end end local function u(v)if typeof(v)=='table'then return
 v elseif typeof(v)=='string'then local w=g:FindFirstChild(string.lower(v))if w then return ac(w)end ak.warn(
-"Destiny Hub: unknown theme '"..v.."', using default")elseif v~=nil then ak.warn
-[[Destiny Hub: invalid theme (expected a built-in name or a theme table), using default]]end return ac(g.default)end
+"Rayfield: unknown theme '"..v.."', using default")elseif v~=nil then ak.warn
+[[Rayfield: invalid theme (expected a built-in name or a theme table), using default]]end return ac(g.default)end
 local function v(w)local x,y=table.clone(ac(g.default)),u(w)for z,A in y do x[z]=q(z,A)end if typeof(w)=='table'then t(x
 ,y)end local z=if typeof(w)=='table'then w else nil if not(z and(z.Font or z.font))then x.Font=f.brandFont(Enum.
 FontWeight.Medium)end if not(z and(z.TitleFont or z.titleFont))then x.TitleFont=f.brandFont(Enum.FontWeight.SemiBold)end
 return x end function h.new(w)w=if typeof(w)=='table'then w else{}if w.translations or w.Translations then aj.register(w
 .translations or w.Translations)end if w.translator or w.Translator then aj.translator=w.translator or w.Translator end
 aj.setActive(w.locale or w.Locale or aj.detect())local x=w.fallbackFont or w.FallbackFont if x then f.setFallbackFont(x)
-end local y=setmetatable({name=w.name or w.Name or'Destiny Hub Window',subheading=w.subtitle or w.Subtitle,size=o(),
-instances={},connections={},icon=w.icon or w.Icon,showName=w.showName or w.ShowName or'Destiny Hub',showIcon=w.showIcon or
-w.ShowIcon or ai.icons.Destiny Hub,themeProperties={},localeProperties={},tabs={},tags={},selectedTab=nil,theme=v(w.theme
+end local y=setmetatable({name=w.name or w.Name or'Rayfield Window',subheading=w.subtitle or w.Subtitle,size=o(),
+instances={},connections={},icon=w.icon or w.Icon,showName=w.showName or w.ShowName or'Rayfield',showIcon=w.showIcon or
+w.ShowIcon or ai.icons.rayfield,themeProperties={},localeProperties={},tabs={},tags={},selectedTab=nil,theme=v(w.theme
 or w.Theme),controls={},configuration=(function()local y=w.configuration or w.Configuration if not y then return{}end
 return{autoSave=y.autoSave or y.AutoSave,autoLoad=y.autoLoad or y.AutoLoad,fileName=y.fileName or y.FileName,
 customFolder=y.customFolder or y.CustomFolder}end)()},h)y.Flags=setmetatable({},{__index=function(z,A)local B=y.controls
-[A]return B and B.value end,__newindex=function(z,A,B)local C=y.controls[A]if not C then ak.warn("Destiny Hub: no flag '"..
+[A]return B and B.value end,__newindex=function(z,A,B)local C=y.controls[A]if not C then ak.warn("Rayfield: no flag '"..
 tostring(A).."' to set")return end C:Set(B)end,__iter=function()local z return function()local A z,A=next(y.controls,z)
 if z then return z,A.value end return nil end end})y.screenGui=y:Create('ScreenGui',{Name=f.httpService:GenerateGUID(
 false),IgnoreGuiInset=true,ResetOnSpawn=false,Enabled=true,DisplayOrder=ai.displayOrder.window,ZIndexBehavior=Enum.
@@ -1427,7 +1427,7 @@ new(0,22),PaddingRight=UDim.new(0,10),Parent=y.tabList})y.actionContainer=y:Crea
 BackgroundTransparency=1,Parent=y.topbar})y.actionsListLayout=y:Create('UIListLayout',{Padding=UDim.new(0,5),
 FillDirection=Enum.FillDirection.Horizontal,VerticalAlignment=Enum.VerticalAlignment.Center,HorizontalAlignment=Enum.
 HorizontalAlignment.Right,SortOrder=Enum.SortOrder.LayoutOrder,Parent=y.actionContainer})y.rfSettings=y:CreateTab{name=
-'Destiny Hub Settings',customOrder=1000,neglectSelector=true,forgetState=true}ac(ab.Parent.action).new(y,{name='Close',icon
+'Rayfield Settings',customOrder=1000,neglectSelector=true,forgetState=true}ac(ab.Parent.action).new(y,{name='Close',icon
 =ai.icons.close,order=1,callback=function()y:ToggleHide()end})y.minimiseAction=ac(ab.Parent.action).new(y,{name=
 'Minimise',icon=ai.icons.minimise,order=2,callback=function()y:ToggleMinimise()end})y.settingsAction=ac(ab.Parent.action
 ).new(y,{name='Settings',icon=ai.icons.settings,order=3,linkedTab=y.rfSettings,callback=function()y.rfSettings:Select()
@@ -1453,7 +1453,7 @@ topbarItem.Visible=true y:_applyVisual(if w.selectedTab==y then'selected'else'un
 EasingStyle.Quint,Enum.EasingDirection.Out))end end return y end function h.CreateTag(w,x)local y=ac(ab.Parent.tag).new(
 w,x)table.insert(w.tags,y)return y end function h._registerControl(w,x)if not x.flag or x.flag==''or x.forgetState then
 return end local y=x.flag if w.controls[y]then local z=2 while w.controls[y..z]do z+=1 end y=y..z ak.warn(
-"Destiny Hub: duplicate config flag '"..x.flag.."', saving this one as '"..y..
+"Rayfield: duplicate config flag '"..x.flag.."', saving this one as '"..y..
 "'. Set a unique flag to keep it stable across sessions.")end x.flag=y w.controls[y]=x return y end function h.
 _restoreLate(w,x)if not w._loadedConfig or not x.flag or x.forgetState then return end local y=w._loading w._loading=
 true ah.applyTo(x,w._loadedConfig[x.flag])w._loading=y end function h._persist(w,x)if x.flag and not x.forgetState and w
@@ -1579,7 +1579,7 @@ A.AbsolutePosition.Y local C,D,E=B+A.AbsoluteWindowSize.Y,math.floor(y/x),0 for 
 main.AbsolutePosition.Y local I=(H+G.main.AbsoluteSize.Y)>B and H<C if I then G:_setShown(true,true)E+=1 if E<=D then
 task.wait(x)end else G:_setShown(true,false)end end end function h.Show(w)if w.animating or not w.hidden then return end
 w.animating=true w._revealing=true if w.configuration.autoLoad and not w._autoLoaded then w._autoLoaded=true local x,y=
-pcall(w.Load,w)if not x then ak.warn('Destiny Hub: Failed to load configuration - '..tostring(y))end end w.hidden=false w.
+pcall(w.Load,w)if not x then ak.warn('Rayfield: Failed to load configuration - '..tostring(y))end end w.hidden=false w.
 minimised=false if w._themeRefreshPending then w._themeRefreshPending=false w:_refreshElementThemes()end w.
 collapsedInteract.Visible=false if w._freeMouse then w._freeMouse()end if w.hasShownOnce then w:_quickRestore()else w.
 hasShownOnce=true w:_firstShow()end end function h._quickRestore(w)local x,y,z,A=w._restorePosition or UDim2.new(0.5,0,
@@ -1657,7 +1657,7 @@ BackgroundTransparency=1}):Play()end end)end function h._runGuarded(w,x,y,...)lo
 ()local A,B=pcall(function()return y(table.unpack(z,1,z.n))end)if A or x._errored then return end x._errored=true local
 C,D=x.flashTarget or x.main,TweenInfo.new(0.25,Enum.EasingStyle.Quint,Enum.EasingDirection.Out)f.tweenService:Create(C,D
 ,{BackgroundColor3=w.theme.ErrorColor}):Play()f.tweenService:Create(x.stroke,D,{Color=w.theme.ErrorStrokeColor}):Play()
-if x.title then x.title.Text=aj.resolve'Error, log recorded in console.'end ak.warn(`Destiny Hub encountered an error, with the callback for a {
+if x.title then x.title.Text=aj.resolve'Error, log recorded in console.'end ak.warn(`Rayfield encountered an error, with the callback for a {
 x.__type} component named '{x.name}':`)ak.print(B)task.wait(1)if x.title then x.title.Text=aj.resolve(x.name)end f.
 tweenService:Create(C,TweenInfo.new(0.4,Enum.EasingStyle.Quint,Enum.EasingDirection.In),{BackgroundColor3=Color3.
 fromRGB(255,255,255)}):Play()f.tweenService:Create(x.stroke,TweenInfo.new(0.6,Enum.EasingStyle.Quint,Enum.
@@ -1836,7 +1836,7 @@ ToggleHide:(self:Window)->(),ToggleMinimise:(self:Window)->(),Navigate:(self:Win
 self:Window,theme:Theme)->(),SetLocale:(self:Window,localeId:string)->(),SetTranslator:(self:Window,translator:
 Translator?)->(),RegisterTranslations:(self:Window,translations:Translations)->(),Save:(self:Window,name:string?)->
 boolean,Load:(self:Window,name:string?)->boolean,ListConfigs:(self:Window)->{string},DeleteConfig:(self:Window,name:
-string)->boolean,Unload:(self:Window)->()}export type Destiny Hub={CreateWindow:(self:Destiny Hub,props:WindowProps)->Window}
+string)->boolean,Unload:(self:Window)->()}export type Rayfield={CreateWindow:(self:Rayfield,props:WindowProps)->Window}
 return{}end)()end,[33]=function()local aa,ab,ac=a(33)local ad return(function(...)local ae,af=ac(ab.Parent.variables),{}
 af.enabled=false type HapticTypes={click:Enum.HapticEffectType?,notify:Enum.HapticEffectType?}local ag:HapticTypes,ah,ai
 ={},pcall(function()Instance.new'HapticEffect':Destroy()return{click=Enum.HapticEffectType.UIHover,notify=Enum.
@@ -1926,7 +1926,7 @@ c)if#d==0 then return false end local e:Instance=ai for f,g in d do local h=e:Fi
 'Folder','Folder not found: '..c)f:Destroy()end end function af.ensureFolder(ai:string)if not af.isfolder(ai)then af.
 makefolder(ai)end end function af.ensureDir(ai:string)local aj=''for ak in string.gmatch(ai,'[^/]+')do aj=if aj==''then
 ak else aj..'/'..ak if not af.isfolder(aj)then af.makefolder(aj)end end end return af end)()end,[39]=function()local aa,
-ab,ac=a(39)local ad return(function(...)local ae,af,ag,ah=ac(ab.Parent.filesystem),ac(ab.Parent.path),'Destiny Hub',{}ah.
+ab,ac=a(39)local ad return(function(...)local ae,af,ag,ah=ac(ab.Parent.filesystem),ac(ab.Parent.path),'Rayfield',{}ah.
 __index=ah export type FileSystemManager={root:string,assets:string,getPath:(self:FileSystemManager,subpath:string?)->
 string,getAssetsFolder:(self:FileSystemManager,subfolder:string?)->string,getRootFolder:(self:FileSystemManager)->string
 }function ah.new(ai:string?):FileSystemManager local aj=ai or ag local ak=setmetatable({root=aj,assets=aj..'/Assets'},ah
@@ -2062,7 +2062,7 @@ then local ak,b=pcall(ag.translator,aj,ag.current)if ak and type(b)=='string'and
 strings[ag.current]if ak and ak[aj]then return ak[aj]end local b=ag.strings[ai(ag.current)]if b and b[aj]then return b[
 aj]end return aj end function ag.register(aj:TranslationTables?)if type(aj)~='table'then return end for ak,b in aj do if
 type(ak)=='string'and type(b)=='table'then ak=string.lower(ak)local c=ag.strings[ak]if not c then c={}ag.strings[ak]=c
-end for d,e in b do if type(d)=='string'and type(e)=='string'then c[d]=e else af.warn(`Destiny Hub: skipping a '{ak}' translation, entries must be string to string.`
+end for d,e in b do if type(d)=='string'and type(e)=='string'then c[d]=e else af.warn(`Rayfield: skipping a '{ak}' translation, entries must be string to string.`
 )end end end end end function ag.setActive(aj:string?):string ag.current=if type(aj)=='string'and aj~=''then string.
 lower(aj)else'en'return ag.current end function ag.detect():string local aj=ae.localizationService.RobloxLocaleId if
 type(aj)=='string'and aj~=''then return string.lower(aj)end return'en'end return ag end)()end,[46]=function()local aa,ab
@@ -2143,25 +2143,25 @@ PersistedControl},configuration:{fileName:string?,customFolder:string?},name:str
 string]:unknown}?,_loadedConfigPath:string?}function ak.getPath(b:ConfigWindow,c:unknown?):(string,string)return ai.
 getConfigPath(b,c)end function ak.save(b:ConfigWindow,c:unknown?):boolean local d,e=ak.getPath(b,c)local f:{[string]:
 unknown}={}for g,h in b.controls do local i,j=pcall(function()local i=h._serialize if i then return i(h)end return h.
-value end)if i then f[g]=j else ag.warn("Destiny Hub: Failed to serialize flag '"..tostring(g).."' - "..tostring(j))end end
+value end)if i then f[g]=j else ag.warn("Rayfield: Failed to serialize flag '"..tostring(g).."' - "..tostring(j))end end
 local g=b._loadedConfig if g and b._loadedConfigPath==e then for h,i in g do if b.controls[h]==nil then f[h]=i end end
 end local h,i=pcall(ae.httpService.JSONEncode,ae.httpService,f)if not h then ag.warn(
-'Destiny Hub: Failed to encode configuration - '..tostring(i))return false end local j,k=pcall(function()aj.write(d,e,i)end
-)if not j then ag.warn('Destiny Hub: Failed to save configuration - '..tostring(k))return false end return true end
+'Rayfield: Failed to encode configuration - '..tostring(i))return false end local j,k=pcall(function()aj.write(d,e,i)end
+)if not j then ag.warn('Rayfield: Failed to save configuration - '..tostring(k))return false end return true end
 local function b(c:string):({[string]:unknown}?,string?)if not af.isfile(c)then return nil,nil end local d,e=pcall(af.
-readfile,c)if not d or type(e)~='string'then ag.warn'Destiny Hub: Failed to read configuration file'return nil,nil end
+readfile,c)if not d or type(e)~='string'then ag.warn'Rayfield: Failed to read configuration file'return nil,nil end
 local f,g=pcall(ae.httpService.JSONDecode,ae.httpService,e)if not f or type(g)~='table'then return nil,e end return g::{
 [string]:unknown},e end local function c(d:string):string local e=ah.stripExtension(d,'.rfld')local f,g=e..
 ' (Incorrect Format).rfld',2 while g<=100 and af.isfile(f)do f=e..' (Incorrect Format '..g..').rfld'g+=1 end return f
 end function ak.load(d:ConfigWindow,e:unknown?):boolean local f,g=ak.getPath(d,e)if typeof(af.isfile)~='function'then
 return false end local h,i=b(g)if not h and af.isfile(g)then local j,k=b(aj.tempPathFor(g))if j and k then h=j pcall(aj.
 write,f,g,k)end end if not h then if i then ag.warn
-[[Destiny Hub: Configuration file has an invalid format, backing up and resetting]]local j=c(g)pcall(function()af.
+[[Rayfield: Configuration file has an invalid format, backing up and resetting]]local j=c(g)pcall(function()af.
 ensureDir(f)af.writefile(j,i)af.delfile(g)end)end return false end local j,k=h::{[string]:unknown},d._loading d._loading
 =true local l,m=pcall(function()for l,m in d.controls do ak.applyTo(m,j[l])end end)d._loading=k if not l then ag.warn(
-'Destiny Hub: Failed to apply configuration - '..tostring(m))end d._loadedConfig=j d._loadedConfigPath=g return true end
+'Rayfield: Failed to apply configuration - '..tostring(m))end d._loadedConfig=j d._loadedConfigPath=g return true end
 function ak.applyTo(d:PersistedControl,e:unknown)if e==nil and not d._canBeNil then return end local f,g=pcall(function(
-)local f=d._deserialize if f then f(d,e)else d:Set(e)end end)if not f then ag.warn("Destiny Hub: Failed to restore flag '"
+)local f=d._deserialize if f then f(d,e)else d:Set(e)end end)if not f then ag.warn("Rayfield: Failed to restore flag '"
 ..tostring(d.flag).."' - "..tostring(g))end end function ak.list(d:ConfigWindow):{string}local e,f:{string}=ak.getPath(d
 ),{}local g,h=pcall(af.listfiles,e)if not g or type(h)~='table'then return f end for i,j in h do local k=ah.basename(j)
 if k:sub(-5)=='.rfld'then local l=ah.stripExtension(k,'.rfld')if l and l~=''and not l:find' %(Incorrect Format[^%)]*%)$'
@@ -2240,7 +2240,7 @@ Vector2.new(300,285),0.86,0.7,24,28,80,1.95,200 ae.defaultSize=af ae.minSize=ag 
 math.clamp((af.Y-f)/(af.Y-ag.Y),0,1)end function ae.fit(f:Vector2?):UDim2 if not f or f.X<d or f.Y<d then return UDim2.
 fromOffset(af.X,af.Y)end local g,h=math.min(f.X*ah,f.X-aj),math.min(f.Y*ai,f.Y-ak)local i=math.floor(math.min(math.
 clamp(h,ag.Y,af.Y),h))local j=e(i)local k=math.max(af.X+b*j,ag.X)return UDim2.fromOffset(math.floor(math.min(k,g,i*c)),i
-)end return ae end)()end},{{1,2,{'Destiny Hub'},{{24,1,{'themes'},{{27,2,{'default'}},{25,2,{'amethyst'}},{29,2,{'frost'}},
+)end return ae end)()end},{{1,2,{'Rayfield'},{{24,1,{'themes'},{{27,2,{'default'}},{25,2,{'amethyst'}},{29,2,{'frost'}},
 {28,2,{'ember'}},{26,2,{'cobalt'}},{30,2,{'rose'}}}},{32,1,{'utility'},{{44,2,{'imageCache'}},{45,2,{'locale'}},{38,2,{
 'filesystem'}},{47,2,{'moveable'}},{56,2,{'persistenceWrite'}},{61,2,{'windowSizing'}},{51,2,{'path'}},{46,2,{'log'}},{
 41,2,{'fontManager'}},{42,2,{'functions'}},{37,2,{'enums'}},{55,2,{'persistenceSettings'}},{58,2,{'services'}},{34,2,{
